@@ -1,0 +1,7 @@
+li {
+  background-color: azure;
+  transition: background-color 2s ease;
+}
+li.new {
+  background-color: purple;
+}

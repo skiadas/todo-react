@@ -1,0 +1,31 @@
+.calculator {
+  width: 10em;
+}
+
+.calculator .buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 2em);
+  justify-items: center;
+}
+
+.calculator .buttons button {
+  border-radius: 2em;
+  width: 2em;
+  text-align: center;
+  margin: 0.5em 0;
+}
+
+.calculator .calc-screen {
+  width: 90%;
+  border: 1px solid red;
+}
+
+.calculator .calc-screen span {
+  display: block;
+  text-align: right;
+}
+
+.calculator .calc-screen .secondary {
+  font-size: 50%;
+  height: 1em;
+}
