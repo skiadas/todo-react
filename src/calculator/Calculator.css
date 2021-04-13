@@ -29,3 +29,13 @@
   font-size: 50%;
   height: 1em;
 }
+
+/* Dark Theme */
+
+.calc-screen.theme-dark {
+  background-color: lightgray;
+}
+
+.calc-screen.theme-light {
+  background-color: white;
+}

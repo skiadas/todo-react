@@ -1,5 +1,5 @@
 import React from "react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useReducer } from "react";
 import "./Calculator.css";
 import { handleNextValue } from "./CalcInternals.js";
 
@@ -22,31 +22,20 @@ const BUTTON_LABELS = [
   "+",
 ];
 
-class Calculator extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      currentValue: 0,
-      history: [],
-      lastKey: null,
-    };
-  }
+function Calculator(props) {
+  const initialState = {
+    currentValue: 0,
+    history: [],
+    lastKey: null,
+  };
+  const [state, dispatch] = useReducer(handleNextValue, initialState);
 
-  handleClick(key) {
-    this.setState((state) => handleNextValue(state, key));
-  }
-
-  render() {
-    return (
-      <div className="calculator">
-        <Screen
-          secondary={this.state.history.join("")}
-          primary={this.state.currentValue}
-        />
-        <Buttons clicked={(value) => this.handleClick(value)} />
-      </div>
-    );
-  }
+  return (
+    <div className="calculator">
+      <Screen secondary={state.history.join("")} primary={state.currentValue} />
+      <Buttons clicked={dispatch} />
+    </div>
+  );
 }
 
 function Screen(props) {
